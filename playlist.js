@@ -14,6 +14,6 @@ function handleButtonClick() {
 	if (songName == "") {
 		alert("Please enter a song");
 	} else {
-		alert("Adding" + songName)
+		alert("Adding " + songName)
 	}
 }
