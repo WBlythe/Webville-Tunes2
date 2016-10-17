@@ -11,4 +11,9 @@ function handleButtonClick() {
 	li.innerHTML = songName;
 	var ul = document.getElementById("playlist");
 	ul.appendChild(li);
+	if (songName == "") {
+		alert("Please enter a song");
+	} else {
+		alert("Adding" + songName)
+	}
 }
