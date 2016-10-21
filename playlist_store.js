@@ -10,7 +10,7 @@ function loadPlaylist() {
 	if (playlistArray !=null) {
 		for (var i = 0; i < playlistArray.length; i++) {
 			var li = document.createElement("li");
-			li.innerHTML = playistArray[i];
+			li.innerHTML = playlistArray[i];
 			ul.appendChild(li);
 		}
 	}
