@@ -1,51 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1404.34">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    span.Apple-tab-span {white-space:pre}
-  </style>
-</head>
-<body>
-<p class="p1">function getNextShowing(movie) {</p>
-<p class="p1"><span class="Apple-tab-span">	</span>var now = new Date() .getTime();</p>
-<p class="p2"><br></p>
-<p class="p1">for (var i = 0; i &lt; movie.showtimes.length; i++) {</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>var showtime = getTimeFromString(movie.showtimes[i]);</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>if ((showtime - now) &gt; 0) {</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>return "Next showing of " + movie.title + " is " + movie.showtimes[i];</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
-<p class="p1"><span class="Apple-tab-span">	</span>}</p>
-<p class="p1"><span class="Apple-tab-span">	</span>return null;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function getTimeFromString(timeString) {</p>
-<p class="p1"><span class="Apple-tab-span">	</span>var theTime = new Date();</p>
-<p class="p1"><span class="Apple-tab-span">	</span>var time = timeString.match(/(\d+)(?::(\d\d))?\s*(p?)/);</p>
-<p class="p1"><span class="Apple-tab-span">	</span>theTime.setHours( parseInt(time[1]) + (time[3] ? 12 : 0 );</p>
-<p class="p1"><span class="Apple-tab-span">	</span>theTime.setMinutes( parseInt(time[2]) || 0);</p>
-<p class="p1"><span class="Apple-tab-span">	</span>return theTime.getTime();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">var nextShowing = getNextShowing(movie1);</p>
-<p class="p1">alert(nextShowing);</p>
-<p class="p1">nextShowing = getNextShowing(movie2);</p>
-<p class="p1">alert(nextShowing);</p>
-<p class="p2"><br></p>
-<p class="p1">var banzaiMovie = {</p>
-<p class="p1"><span class="Apple-tab-span">	</span>title: "Buckaroo Banzai",</p>
-<p class="p1"><span class="Apple-tab-span">	</span>genre: "Cult Classic",</p>
-<p class="p1"><span class="Apple-tab-span">	</span>rating: 5,</p>
-<p class="p1"><span class="Apple-tab-span">	</span>showtimes: ["1:00pm", "5:00pm", "7:00pm"]</p>
-<p class="p1">};</p>
-<p class="p2"><br></p>
-<p class="p1">var nextShowing = getNextShowing(banzaiMovie);</p>
-<p class="p1">alert(nextShowing);</p>
-</body>
-</html>
+function getNextShowing(movie) {
+	var now = new Date() .getTime();
+
+for (var i = 0; i < movie.showtimes.length; i++) {
+		var showtime = getTimeFromString(movie.showtimes[i]);
+		if ((showtime - now) > 0) {
+			return "Next showing of " + movie.title + " is " + movie.showtimes[i];
+		}
+	}
+	return null;
+}
+
+function getTimeFromString(timeString) {
+	var theTime = new Date();
+	var time = timeString.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+	theTime.setHours( parseInt(time[1]) + (time[3] ? 12 : 0 );
+	theTime.setMinutes( parseInt(time[2]) || 0);
+	return theTime.getTime();
+}
+
+var nextShowing = getNextShowing(movie1);
+alert(nextShowing);
+nextShowing = getNextShowing(movie2);
+alert(nextShowing);
+
+var banzaiMovie = {
+	title: "Buckaroo Banzai",
+	genre: "Cult Classic",
+	rating: 5,
+	showtimes: ["1:00pm", "5:00pm", "7:00pm"]
+};
+
+var nextShowing = getNextShowing(banzaiMovie);
+alert(nextShowing);
