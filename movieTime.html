@@ -15,7 +15,7 @@
 					var now = new Date().getTime();
 				
 					for (var i = 0; i < this.showtimes.length; i++) {
-						var showtime = getTimeFromString(showtimes[i]);
+						var showtime = getTimeFromString(this.showtimes[i]);
 						if ((showtime - now) > 0) {
 							return "Next showing of " + this.title + " is " + this.showtimes[i];
 						}
@@ -33,7 +33,7 @@
 					var now = new Date().getTime();
 				
 					for (var i = 0; i < this.showtimes.length; i++) {
-						var showtime = getTimeFromString(showtimes[i]);
+						var showtime = getTimeFromString(this.showtimes[i]);
 						if ((showtime - now) > 0) {
 							return "Next showing of " + this.title + " is " + this.showtimes[i];
 						}
