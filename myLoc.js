@@ -16,7 +16,7 @@ function displayLocation(position) {
   div.innerHTML = "Your are at a latitude: " + latitude + ", Longitude: " + longitude;
 }
 
-function (displayError) {
+function displayError(error) {
      var errorTypes = {
      0: "Unknown",
      1: "Permission denies by user",
