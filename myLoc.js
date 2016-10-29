@@ -9,8 +9,8 @@ function getMyLocation() {
 }
 
 function displayLocation(position) {
-  var latitude = position.coordinates.latitude;
-  var longitude = position.coordinates.longitude;
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
   
   var div = document.getElementById("location");
   div.innerHTML = "Your are at a latitude: " + latitude + ", Longitude: " + longitude;
