@@ -1,6 +1,6 @@
 window.onload = getMyLocation;
 
-function (getMyLocation) {
+function getMyLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(displayLocation);
   } else {
