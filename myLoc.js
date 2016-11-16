@@ -30,3 +30,21 @@ function displayError(error) {
   var div = document.getElementById("location");
   div.innerHTML = errorMessage;
 }
+
+function computeDistances(startCoords, destCoords) {
+  var startLatRads = degreesToRadians(startCoords.latitude);
+  var startLongRads = degreesToRadians(startCoords.longitude);
+  var destLatRads = degreesToRadians(startCoords.latitude);
+  var destLongRads = degreesToRadians(startCoords.longitude);
+  
+  var Radius = 6371; // radius of the earth in km
+  var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
+                           Math.cos(startLatRads) * Math.cos(destLatRads) *
+                           Math.cos(startLongRads - destLongRads)) * Radius;
+  return distance;
+}
+
+function degreesToRadians(degrees) {
+  var radians = (degrees * Math.PI)/180;
+  return radians;
+}
