@@ -25,7 +25,7 @@ function displayLocation(position) {
   var div = document.getElementById("location");
   div.innerHTML = "Your are at a latitude: " + latitude + ", Longitude: " + longitude;
   
-  var km = computeDistances(position.coords, ourCoords);
+  var km = computeDistance(position.coords, ourCoords);
   var distance = document.getElementById("distance");
   distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
   
@@ -49,7 +49,7 @@ function displayError(error) {
 }
 
 //Obtaining the distance between two points 
-function computeDistances(startCoords, destCoords) {
+function computeDistance(startCoords, destCoords) {
   var startLatRads = degreesToRadians(startCoords.latitude);
   var startLongRads = degreesToRadians(startCoords.longitude);
   var destLatRads = degreesToRadians(startCoords.latitude);
