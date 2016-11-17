@@ -69,13 +69,13 @@ function degreesToRadians(degrees) {
 
 //Displaying the map 
 function showMap(coords) {
-  var googleLatAndLng = 
+  var googleLatAndLong = 
       new google.maps.LatLng(coords.latitude,
                              coords.longitude);
   
   var mapOptions = {
     zoom: 10,
-    center: googleLatAndLng,
+    center: googleLatAndLong,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var mapDiv = document.getElementById("map");
