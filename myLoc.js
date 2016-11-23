@@ -61,7 +61,8 @@ var map;
 
 function showMap(coords) {
 	var googleLatAndLong =
-		new google.maps.LatLng(coords.latitude,coords.longitude);
+		new google.maps.LatLng(coords.latitude,
+				       coords.longitude);
 
 	var mapOptions = {
 		zoom: 10,
