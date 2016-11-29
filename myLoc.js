@@ -75,7 +75,6 @@ function showMap(coords) {
 }
 
 
-
 function displayError(error) {
 	var errorTypes = {
 		0: "Unknown error",
@@ -90,4 +89,25 @@ function displayError(error) {
 	}
 	var div = document.getElementById("location");
 	div.innerHTML = errorMessage;
+}
+
+/*This is for the google maps api which isnt showing up on my page*/
+function acmeReferenceError( valueExists ) {
+  'use strict';
+
+  if ( undefined === valueExists ) {
+  
+    /* If this is hit, then the function is being invoked
+     * before the variable in question has been defined.
+     */
+
+  } else {
+
+    /* If this particular conditional is hit, then the function
+     * is being invoked after the value in question has
+     * been defined.
+     */
+
+  }
+
 }
