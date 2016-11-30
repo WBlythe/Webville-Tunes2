@@ -1,1 +1,4 @@
-loc
+#map-canvas {
+  height: 400px;
+  width: 300px;
+}
