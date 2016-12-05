@@ -91,23 +91,23 @@ function displayError(error) {
 	div.innerHTML = errorMessage;
 }
 
-/*This is for the google maps api which isnt showing up on my page*/
-function acmeReferenceError( valueExists ) {
-  'use strict';
-
-  if ( undefined === valueExists ) {
-  
-    /* If this is hit, then the function is being invoked
-     * before the variable in question has been defined.
-     */
-
-  } else {
-
-    /* If this particular conditional is hit, then the function
-     * is being invoked after the value in question has
-     * been defined.
-     */
-
-  }
-
+//*time to pin it on the map :D *//
+function addMarker(map, latlong, title, content) {
+	var markerOptions = {
+		position: latlong,
+		map: map,
+		title: title,
+		clickable: true
+	};
+	var marker = new google.maps.Marker(markerOptions);
+	
+	var infoWindowOptions = {
+		content: content,
+		position: latlong
+	};
+	var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+	
+	google.maps.event.addListener(marker, "click", function() {
+		infoWindow.open(map);
+	});
 }
