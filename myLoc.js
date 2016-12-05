@@ -72,6 +72,11 @@ function showMap(coords) {
 
 	var mapDiv = document.getElementById("map");
 	map = new google.maps.Map(mapDiv, mapOptions);
+	
+	//* adding the marker*//
+	var title = "Your Location";
+	var content = "You are here: " + coords.latitude + ", " + coords.longitude;
+	addMarker(map, googleLatAndLong, title, content);
 }
 
 
