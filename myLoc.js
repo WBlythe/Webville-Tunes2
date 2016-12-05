@@ -96,7 +96,6 @@ function displayError(error) {
 	div.innerHTML = errorMessage;
 }
 
-//*time to pin it on the map :D *//
 function addMarker(map, latlong, title, content) {
 	var markerOptions = {
 		position: latlong,
