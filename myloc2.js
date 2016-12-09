@@ -43,7 +43,17 @@ function displayLocation(position) {
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
-	distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
+	if (km < 0.1) {
+		distance.innerHTML = "You're on fire!";
+	} else {
+		if (km < prevKm) {
+			distance.innerHTML = "You're getting hotter!";
+		} else {
+			distance.innerHTML = "You're getting colder. . .";
+		}
+	}
+	prevKm = km;
+	
 	if (map == null) {
 		showMap(position.coords);
 	}
