@@ -52,7 +52,7 @@ function displayLocation(position) {
 			distance.innerHTML = "You're getting colder. . .";
 		}
 	}
-	prevKm = km;
+	var prevKm = km;
 	
 	if (map == null) {
 		showMap(position.coords);
