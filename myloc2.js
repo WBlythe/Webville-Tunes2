@@ -9,7 +9,8 @@ var watchId = null;
 			//*WATCH POSITION*//
 function watchLocation() {
 	watchId = navigator.geolocation.watchPosition(displayLocation, 
-						      displayError);
+						      displayError,
+						      {timeout: 5000});
 }
 
 			//*OBTAINING POSTION*//
