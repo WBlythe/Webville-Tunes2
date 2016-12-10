@@ -47,7 +47,7 @@ function displayError(error) {
 		options);
 	div.innerHTML += " ... chacking again with timeout " + options.timeout;
 }
-			//*CLEAR WATCH*//
+			//*clearWatch*//
 function clearWatch() {
 	if (watchId != null) {
 		navigator.geolocation.clearWatch(watchId);
@@ -55,7 +55,7 @@ function clearWatch() {
 	}
 }
 
-			//*DISPLAYING POSITION*//
+			//*displayLocation*//
 function displayLocation(position) {
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
@@ -79,6 +79,8 @@ function displayLocation(position) {
 	
 	if (map == null) {
 		showMap(position.coords);
+	} else {
+		scrollMapToPosition(position.coords);
 	}
 }
 
@@ -148,3 +150,12 @@ function addMarker(map, latlong, title, content) {
 		infoWindow.open(map);
 	});
 }
+
+function scrollMapToPosition(coords) {
+	var latitude = coords.latitude;
+	var longitude = coords.longitude;
+	var latlong = new google.maps.LatLong(latitude, longitude);
+	
+	map.panTo(latlong);
+	
+	addMarker(map, latlong, "Your new location", "You moved to: " + latitude + ", " + longitude);
