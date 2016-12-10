@@ -159,3 +159,4 @@ function scrollMapToPosition(coords) {
 	map.panTo(latlong);
 	
 	addMarker(map, latlong, "Your new location", "You moved to: " + latitude + ", " + longitude);
+}
