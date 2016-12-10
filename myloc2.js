@@ -2,18 +2,18 @@ var ourCoords =  {
 	latitude: 47.624851,
 	longitude: -122.52099
 };
-
+var watchId = null;
+var options = {enableHighAccuracy: true, timeout: 100, maximumAge: 0};
 window.onload = getMyLocation;
 
-var watchId = null;
 			//*WATCH POSITION*//
 function watchLocation() {
 	watchId = navigator.geolocation.watchPosition(displayLocation, 
 						      displayError,
-						      {timeout: 5000});
+						     options);
 }
 
-			//*OBTAINING POSTION*//
+			//*getMyLocation*//
 function getMyLocation() {
 	if (navigator.geolocation) {
 		var watchButton = document.getElementById("watch");
@@ -25,6 +25,28 @@ function getMyLocation() {
 	}
 }
 
+			//*errorHandler*//
+function displayError(error) {
+	var errorTypes = {
+		0: "Unknown error",
+		1: "Permission denied by the user",
+		2: "Position is not available",
+		3: "Request timed out"
+	};
+
+	var errorMessage = errorTypes[error.code];
+	if (error.code == 0 || error.code == 2) {
+		errorMessage = errorMessage + " " + error.message;
+	}
+	var div = document.getElementById("location");
+	div.innerHTML = errorMessage;
+	options.timeout += 100;
+	navigator.geolocation.getCurrentPosition(
+		displayLocation,
+		displayError,
+		options);
+	div.innerHTML += " ... chacking again with timeout " + options.timeout;
+}
 			//*CLEAR WATCH*//
 function clearWatch() {
 	if (watchId != null) {
@@ -40,7 +62,7 @@ function displayLocation(position) {
 	var div = document.getElementById("location");
 	
 	div.innerHTML = "You are at latitude: " + latitude + " , Longitude: " + longitude;
-	div.innerHTML += " (with " + position.coords.accuracy + " meters accuracy)";
+	div.innerHTML += " (found in " + options.timeout + " milliseconds)";
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
@@ -106,22 +128,6 @@ function showMap(coords) {
 	addMarker(map, googleLatAndLong, title, content);
 }
 
-
-function displayError(error) {
-	var errorTypes = {
-		0: "Unknown error",
-		1: "Permission denied by the user",
-		2: "Position is not available",
-		3: "Request timed out"
-	};
-
-	var errorMessage = errorTypes[error.code];
-	if (error.code == 0 || error.code == 2) {
-		errorMessage = errorMessage + " " + error.message;
-	}
-	var div = document.getElementById("location");
-	div.innerHTML = errorMessage;
-}
 
 function addMarker(map, latlong, title, content) {
 	var markerOptions = {
