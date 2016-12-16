@@ -32,3 +32,6 @@ var banzaiMovie = {
 
 var nextShowing = getNextShowing(banzaiMovie);
 alert(nextShowing);
+
+var jsonString = JSON.stringify(plan9Movie);
+alert(jsonString);
