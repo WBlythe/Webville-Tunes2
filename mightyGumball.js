@@ -1,5 +1,5 @@
 window.onload = function() {
-  var url = "http://localhost/sales.json";
+  var url = "http://whitneyblythe.com/sales.json";
   var request = new XMLHttpRequest;
   request.open("GET", url);
   request.onload = function() {
